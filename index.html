@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendations</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Lucida Sans;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .header {
+            background-color: #111827;
+            color:whitesmoke;
+            padding: 30px;
+        }
+        .header h1 {
+            margin:0;
+            font-size:40px;
+        }
+        .header p{
+            font-size: 20px;
+        }
+        .movie-box {
+            background-color: #374151;
+            width:300px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 15px;
+        }
+        .movie-box img {
+            width:100%;
+            border-radius: 10px;
+        }
+        button{
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 18px;
+            background-color: crimson;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Movie Recommendation App</h1>
+    </div>
+    <div class="movie-box">
+        <img id="poster"
+src="https://upload.wikimedia.org/wikipedia/en/b/bc/Interstellar_film_poster.jpg">
+<h2 id="title">Interstellar</h2>
+<p id="rating">Rating:8.6</p>
+<button onclick="recommendMovie()">Recommend More
+</button>
+</div>
+<script>
+    let movies=[
+        {
+            title:"Inception",
+            rating:"8.8",
+            poster:"https://upload.wikimedia.org/wikipedia/en/7/7f/Inception_ver3.jpg"
+        },
+        {
+            title:"Avatar",
+            rating:"7.9",
+            poster:"https://upload.wikimedia.org/wikipedia/en/d/d6/Avatar_%282009_film%29_poster.jpg"
+        },
+        {
+           title:"Avengers Endgame",
+           rating:"8.4",
+           poster:"https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg"  
+        },
+        {
+            title:"Joker",
+            rating:"8.4",
+            poster:"https://upload.wikimedia.org/wikipedia/en/e/e1/Joker_%282019_film%29_poster.jpg"
+        }
+    ];
+    function recommendMovie()
+    {
+        let randomMovie=movies[Math.floor(Math.random()*movies.length)];
+        document.getElementById("title").innerHTML=randomMovie.title;
+        document.getElementById("rating").innerHTML="Rating"+randomMovie.rating;
+        document.getElementById("poster").src=randomMovie.poster;
+    }
+   </script>
+</body>
+</html>
